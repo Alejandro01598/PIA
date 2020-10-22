@@ -8,15 +8,23 @@ class Nomina:
     def mostrarinfo(self):
         print("Nombre del empleado"+str(self.__nombre))
         print("Id del empleado"+str(self.__idempleado))
+        total = (self.__horas * self.__sueldoh)
+        if total >= 1200:
+            deduccion = (total * 0.07)
+        else:
+            deduccion =(total* 0.035)
+
+        print("El sueldo total"+str(total-deduccion))
 
     def sueldo(self):
         print("Sueldo neto del empleado:"+str(self.__horas * self.__sueldoh))   
-
+print("-------NOMINA-------")
 id_empleado=int(input("Ingresa el id del empleado: \n"))
 nombre=input("Ingrese el nombre: \n")
 horas=int(input("Ingresa las horas: \n"))
 sueldoh=int(input("Ingresa el sueldo bruto: \n"))
-
+total=0
+deduccion=0
 N=Nomina(id_empleado,nombre,horas,sueldoh)
 N.mostrarinfo() 
 N.sueldo()
